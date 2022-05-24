@@ -1,0 +1,15 @@
+<div *ngIf="cityData" (click)="showCity()">
+  <div class="row">
+    <div class="col-6">
+      <div class="citySubtitle">
+        <span>{{ cityData.name }}</span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="avgTemp">
+        <span>{{ cityData.avgTemp }}</span>
+      </div>
+    </div>
+  </div>
+  <app-weather-tile [weatherData]="cityData"></app-weather-tile>
+</div>

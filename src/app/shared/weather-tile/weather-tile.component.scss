@@ -1,0 +1,29 @@
+.tile {
+  text-align: center;
+  margin: 0px auto;
+  width: 100%;
+  max-width: 300px;
+  min-width: 150px;
+
+  .desc {
+    color: lightgrey;
+    margin-bottom: -10px;
+  }
+
+  img {
+    max-height: 100px;
+  }
+  
+  .basicInfo {
+    white-space: nowrap;
+
+    .generalTemp {
+      font-weight: bold;
+      height: 100%;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

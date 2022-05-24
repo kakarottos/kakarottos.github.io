@@ -1,0 +1,44 @@
+<div class="tile" *ngIf="weatherData" >
+    <div class="row">
+      <div class="col">
+        <div>
+          <span>{{ weatherData.checkTime }} </span>
+        </div>
+        <div class="desc">
+          <span>{{ weatherData.weather[0].description }} </span>
+        </div>
+        <div>
+          <img
+            src="http://openweathermap.org/img/wn/{{
+              weatherData.weather[0].icon
+            }}@2x.png"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row basicInfo">
+      <div class="col-6">
+        <div class="row">
+          <div class="col-1">
+            <i class="fa fa-wind"></i>
+          </div>
+          <div class="col-6">
+            <span>{{ weatherData.wind.speed }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1">
+            <i class="fa fa-tint"></i>
+          </div>
+          <div class="col-6">
+            <span>{{ weatherData.humidity }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="generalTemp">
+          <span>{{ weatherData.actualTemp }}</span></div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,40 @@
+<div class="container">
+  <ng-container *ngIf="!loading; else loadingTemplate">
+    <ng-container *ngIf="hasContent; else emptyTemplate">
+      <div class="cardsContainer">
+        <ng-container *ngIf="!city; else detailsTempalte">
+          <ng-container *ngTemplateOutlet="listTemplate"> </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #loadingTemplate>
+    <app-loading></app-loading>
+  </ng-template>
+
+  <ng-template #emptyTemplate>
+    <app-empty></app-empty>
+  </ng-template>
+
+  <ng-template #listTemplate>
+    <ng-container *ngFor="let cityData of weatherData">
+      <ng-container *ngIf="cityData">
+        <app-city-list
+          class="listCard"
+          [cityData]="cityData"
+          (show)="showDetails(cityData)"
+        ></app-city-list>
+      </ng-container>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #detailsTempalte>
+    <app-city-details
+      class="detailsCard"
+      *ngIf="city"
+      [actualWeather]="city"
+      (hide)="showList()"
+    ></app-city-details>
+  </ng-template>
+</div>

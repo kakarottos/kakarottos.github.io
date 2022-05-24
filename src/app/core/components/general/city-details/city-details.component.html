@@ -1,0 +1,28 @@
+<app-loading *ngIf="loading"></app-loading>
+<ng-container *ngIf="cityData && !loading">
+  <div class="row">
+    <div class="col-6">
+      <div class="citySubtitle" id="cityButton">
+        <span> {{ cityGeneral.name }}</span>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="closeButton" (click)="showAll()">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-weather-tile [weatherData]="actualWeather"></app-weather-tile>
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <ng-container *ngFor="let day of cityData">
+      <div class="col">
+        <app-weather-tile [weatherData]="day"></app-weather-tile>
+      </div>
+    </ng-container>
+  </div>
+</ng-container>
